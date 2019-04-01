@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>New Feed</h1>
+    <hr />
+    <form action="/feeds/" method="POST">
+      {% csrf_token %}
+      <p>Title</p>
+      <input name="title" /> <br />
+      <p>Content</p>
+      <input name="content" /> <br />
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+{% endblock content %}
