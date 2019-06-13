@@ -32,20 +32,21 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
+    'django.contrib.auth', # Core authentication framework and its default models
+    'django.contrib.contenttypes', # Allows permissions to be associated with models
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'feedpage.apps.FeedpageConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware', # Manages sessions across requests
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware', # Associates users with requests using sessions
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -119,3 +120,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = "/feeds/" # next로 인해 일반적인 경우는 필요하지 않지만, url을 통해 직접 접근하는 경우에 필요함

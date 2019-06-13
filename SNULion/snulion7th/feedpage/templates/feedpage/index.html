@@ -1,16 +1,28 @@
-{% extends 'base.html' %}
+{% extends './base.html' %}
 
 {% block content %}
     <h1>Feed Page</h1>
     <a href='/feeds/new'>NEW Feed</a>
     <hr />
     {% for feed in feeds %}
-      <div style="border: 1px solid grey;">
-        <a href="/feeds/{{ feed.id }}">MORE</a>
-        <a href="/feeds/{{ feed.id }}/delete">DELETE</a>
-        <p>{{ feed.title }}</p>
-        <p>{{ feed.content }}</p>
+      <div class="demo-card-event mdl-card mdl-shadow--2dp">
+          <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+              {{ feed.title }}
+            </a>
+            <div>
+              <div class="mdl-layout-spacer"></div>
+              <a href="/feeds/{{ feed.id }}">
+                <i class="material-icons">expand_more</i>
+              </a>
+              <a href="/feeds/{{ feed.id }}/delete" onClick="return confirm('정말 삭제하시겠습니까?')">
+                <i class="material-icons">delete</i>
+              </a>
+            </div>
+          </div>
+          <div class="mdl-card__title mdl-card--expand">
+              <h4>{{ feed.content }}</h4>
+          </div>
       </div>
-      <br />
     {% endfor %}  
 {% endblock content %}

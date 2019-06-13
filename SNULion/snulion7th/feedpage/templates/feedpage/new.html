@@ -1,15 +1,15 @@
-{% extends 'base.html' %}
+{% extends './base.html' %}
 
 {% block content %}
     <h1>New Feed</h1>
+    <a href="/feeds">Feed List</a>
     <hr />
     <form action="/feeds/" method="POST">
       {% csrf_token %}
-      <p>Title</p>
-      <input name="title" /> <br />
-      <p>Content</p>
-      <input name="content" /> <br />
-      <br />
+      <h3>Title</h3>
+      <p><input name="title" required></p>
+      <h3>Content</h3>
+      <p><input name="content"></p>
       <input type="submit" value="Submit" />
     </form>
 {% endblock content %}

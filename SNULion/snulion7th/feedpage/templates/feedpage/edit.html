@@ -1,15 +1,16 @@
-{% extends "base.html" %}
+{% extends "./base.html" %}
 
 {% block content %}
     <h1>Edit Feed</h1>
     <hr />
     <form action="/feeds/{{ feed.id }}/" method="POST">
         {% csrf_token %}
-        <p>Title</p>
-        <input name="title" value="{{ feed.title }}" /> <br />
-        <p>Content</p>
-        <input name="content" value="{{ feed.content }}" /> <br />
-        <br />
+        <h3>Title</h3>
+        <p><input name="title" value="{{ feed.title }}"></p>
+        <h3>Content</h3>
+        <p><input name="content" value="{{ feed.content }}"></p>
         <input type="submit" value="Submit" />
+        <button>Cancle</button>
+        <!--button은 기본적으로 submit 속성을 지님-->
     </form>
 {% endblock content %}

@@ -1,11 +1,14 @@
-{% extends 'base.html' %}
+{% extends './base.html' %}
 
 {% block content %}
-    <div>
-      <a href="/feeds">HOME</a>
-      <a href="/feeds/{{ feed.id }}/edit">EDIT</a>
-      <hr />
-      <p>{{ feed.title }}</p>
-      <p>{{ feed.content }}</p>
-    </div>
+  <h1>Feed</h1>
+  <a href="/feeds">Feed List</a>
+  <a href="/feeds/{{ feed.id }}/edit">EDIT</a>
+  
+  <hr>
+
+  <h3>Title</h3>
+  <p>{{ feed.title }}</p>
+  <h3>Content</h3>
+  <p>{{ feed.content }}</p>
 {% endblock content %}
